@@ -1,4 +1,4 @@
-package ru.gb.jtwo.lone.online.circles;
+package lesson_01;
 
 import javax.swing.*;
 import java.awt.*;
@@ -25,6 +25,7 @@ public class MainCircles extends JFrame {
         setBounds(POS_X, POS_Y, WINDOW_WIDTH, WINDOW_HEIGHT);
         initApplication();
         GameCanvas canvas = new GameCanvas(this);
+        canvas.setBackground(new Background().getColor());
         add(canvas, BorderLayout.CENTER);
         setTitle("Circles");
         setVisible(true);
@@ -39,6 +40,8 @@ public class MainCircles extends JFrame {
     public void onDrawFrame(GameCanvas canvas, Graphics g, float deltaTime) {
         update(canvas, deltaTime); // obnovlenie // S = v * t
         render(canvas, g); // otrisovka
+        canvas.setBackground(new Background().getColor());
+        //canvas.setBackground(new Background(this, canvas).getColor());
     }
 
     private void update(GameCanvas canvas, float deltaTime) {
